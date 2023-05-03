@@ -1,0 +1,6 @@
+<div class="calendar-wrapper">
+    <app-header (month)="setMonth($event)" (weekMode)="weekMode = $event" [monthInView]="monthInView"></app-header>
+    <app-calendar-grid *ngIf="!weekMode" [chosenMonth]="chosenMonth" [monthInView]="monthInView"></app-calendar-grid>
+    <calendar-week *ngIf="weekMode" [weekInView]="weekInView" [chosenWeekGreed]="chosenWeekGreed"
+        [chosenWeek]="chosenWeek"></calendar-week>
+</div>

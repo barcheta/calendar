@@ -1,0 +1,44 @@
+<div style="display: flex;">
+    <div class="11" style="width: 10%;">
+        <div>
+            <div class="wrapper">
+                <div class="week-wrapper" *ngFor="let d of chosenWeek; let i = index" (click)="addTask(d, 'add')">
+                    <ng-container *ngIf="i == 0">
+                        <div>
+                            hours
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="i != 0">
+                        <div class="week-day">
+                            <div>{{weekDays[i]}} - {{ d.date() }}</div>
+                            <div (click)="editEvent(event)" *ngFor="let event of getSimpleEvents()[i]">{{event.title}}
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div *ngFor="let day of this.chosenWeekGreed; let i = index" class="asdfsda">
+                    <ng-container *ngIf="i == 0">
+                        <div class="one-hour" *ngFor="let hour of day; let i = index">{{i + ':00'}}</div>
+                    </ng-container>
+                    <ng-container *ngIf="i != 0">
+                        <div>
+                            <div (click)="addTask(hour, 'add')" class="one-hour"
+                                *ngFor="let hour of day; let i = index">
+                                <div *ngIf="getEvent(hour) as variable"
+                                    (click)="showListTasksF(variable); $event.stopPropagation()">
+                                    {{variable.length == 1 ? variable.length + ' event' : variable.length + ' events' }}
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-tasks-list *ngIf="showListTasks" [calEvents]="ListTasks" [(close)]="showListTasks"
+        (selectedEvent)="editEvent($event)"></app-tasks-list>
+
+    <event-edit-modal *ngIf="showCalEventEdit" [action]="calEventEction" [calEvent]="calEvent"
+        [(close)]="showCalEventEdit"></event-edit-modal>

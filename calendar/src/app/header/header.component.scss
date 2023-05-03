@@ -1,0 +1,38 @@
+.date-info,
+.buttons,
+.header-wrapper {
+    display: flex;
+}
+
+.header-wrapper {
+    justify-content: space-between;
+    background-color: #1E1F21;
+    color: #DCDDDD;
+    padding: 0 15px;
+
+    h1 {
+        margin-right: 15px;
+        font-weight: 500;
+    }
+
+    .buttons {
+        align-items: center;
+
+        button {
+            border: none;
+            border-radius: 4px;
+            background-color: #565759;
+            color: #E6E6E6;
+            margin: 2px;
+        }
+
+        .nav-button {
+            height: 32px;
+            width: 32px;
+        }
+    }
+}
+
+.title {
+    background-color: #2A2B20;
+}

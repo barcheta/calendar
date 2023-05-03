@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+app-root {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.mdc-text-field--filled{
+    background-color: #EEF4FF!important;
+    color: #99A3BA;
+}
+
+.mdc-text-field .mdc-floating-label, .mat-mdc-select-value, .mat-mdc-select-arrow{
+    color: #99A3BA!important;
+}
+
+.mat-datepicker-toggle-default-icon.ng-star-inserted {
+    fill: #99A3BA!important;;
+}
+
+.mat-date-range-input-inner[disabled] {
+    color: #bfc7da!important;
+}

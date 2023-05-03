@@ -1,0 +1,308 @@
+//$opacity-transition: opacity $speed ease-in-out;
+
+.modal-header {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    height: 16px;
+    text-decoration: none;
+    width: 16px;
+
+    svg {
+        width: 16px;
+    }
+}
+
+.modal-wrapper {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#modal {
+    opacity: 0;
+    transition: 'ease-in-out';
+    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+
+    .modal-body {
+        opacity: 1;
+        transform: translateY(1);
+        max-width: 500px;
+        transform: translateY(-100px);
+        transition: 'ease-in-out';
+        width: 100%;
+        z-index: 1;
+    }
+}
+
+.outside-trigger {
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.button__link {
+    text-decoration: none;
+}
+
+.card {
+    background: #fff;
+    background-image: linear-gradient(48deg, #fff 0%, #e5efe9 100%);
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    box-shadow: -20px 20px 35px 1px rgba(10, 49, 86, 0.18);
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    margin: 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+
+
+::ng-deep :root {
+
+    --input-color: #99A3BA;
+    --input-border: #CDD9ED;
+    --input-background: #fff;
+    --input-placeholder: #CBD1DC;
+
+    --input-border-focus: #275EFE;
+
+    --group-color: var(--input-color);
+    --group-border: var(--input-border);
+    --group-background: #EEF4FF;
+
+    --group-color-focus: #fff;
+    --group-border-focus: var(--input-border-focus);
+    --group-background-focus: #678EFE;
+
+}
+
+.form-field {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    color: var(--input-color);
+    border: 1px solid var(--input-border);
+    background: var(--input-background);
+    transition: border .3s ease;
+
+    &::placeholder {
+        color: var(--input-placeholder);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--input-border-focus);
+    }
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    width: 100%;
+
+    &>span,
+    .form-field {
+        white-space: nowrap;
+        display: block;
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+
+        &:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+
+        &:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+
+        &:not(:first-child) {
+            margin-left: -1px;
+        }
+    }
+
+    .form-field {
+        position: relative;
+        z-index: 1;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &>span {
+        text-align: center;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 25px;
+        color: var(--group-color);
+        background: var(--group-background);
+        border: 1px solid var(--group-border);
+        transition: background .3s ease, border .3s ease, color .3s ease;
+    }
+
+    &:focus-within {
+        &>span {
+            color: var(--group-color-focus);
+            background: var(--group-background-focus);
+            border-color: var(--group-border-focus);
+        }
+    }
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: inherit;
+
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
+// Center
+body {
+    min-height: 100vh;
+    font-family: 'Mukta Malar', Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #F5F9FF;
+
+    .form-group {
+        max-width: 360px;
+
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+}
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, ".SFNSText-Regular", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+}
+
+.toggle {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+    content: "";
+}
+
+.toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-checkbox:checked+.toggle-switch {
+    background: #678EFE;
+}
+
+.toggle-checkbox:checked+.toggle-switch:before {
+    left: 30px;
+}
+
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+.toggle-label {
+    margin-left: 5px;
+    position: relative;
+    top: 2px;
+}
+
+button {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #8da5ef;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+
+    &:hover {
+        background-color: #678EFE;
+        border-color: #1b1f2326;
+        transition-duration: 0.1s;
+    }
+}

@@ -1,0 +1,14 @@
+<div class="header-wrapper">
+    <div class="date-info">
+        <h1>{{ monthInView.format('MMMM') }}</h1>
+        <h1>{{ monthInView.format('YYYY') }}</h1>
+    </div>
+    <div class="buttons">
+    <button class="day-button" (click)="weekModeChange()">{{weekModeSwith ? 'week' : 'month'}}</button>
+    </div>
+    <div class="buttons">
+        <button class="day-button" (click)="setMonth('today')">today</button>
+        <button class="nav-button" (click)="setMonth('prev')"><</button>
+        <button class="nav-button" (click)="setMonth('next')">></button>
+    </div>
+</div>

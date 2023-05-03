@@ -1,0 +1,23 @@
+<div class="calendar-grid">
+    <div class="week-wrapper" *ngFor="let d of weekDays">
+        <div class="week-day">
+            <div>{{d}}</div>
+        </div>
+    </div>
+    <div class="day-wrapper" (click)="addTask(monthDay, 'add')"
+        [ngClass]="{'weekend': weekendDays.includes(getWeekend(monthDay))}" *ngFor="let monthDay of chosenMonth">
+        <div class="month-day">
+            <div
+                [ngClass]="{'today': isCurrentDay(monthDay) && isCurrentMonth(monthDay), 'asda': isCurrentMonth(monthDay)}">
+                {{ getDay(monthDay) }}</div>
+        </div>
+        <div class="calendar-events-wrapper" *ngFor="let calEvent of todayEvents(monthDay)">
+            <div class="calendar-event" (click)="editTask(calEvent, 'edit'); $event.stopPropagation()">
+                {{calEvent.title}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<event-edit-modal *ngIf="showCalEventEdit" [action]="calEventEction" [calEvent]="calEvent"
+    [(close)]="showCalEventEdit"></event-edit-modal>
